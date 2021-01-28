@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FilmsTable from './films-table';
-import FilmsForm from './films-form';
 
 class Films extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            modalInsertar: true
+            data: []
         };
-        this.abrirForm = this.abrirForm.bind(this);
-    }
-
-    abrirForm = () => {
-        this.setState({
-            modalInsertar: true
-        });
     }
 
     peticionGet = () => {
@@ -34,11 +25,9 @@ class Films extends Component {
     }
 
     render() {
-        const label = 'click';
         return (
             <div>
                 <FilmsTable data={this.state.data}></FilmsTable>
-                <FilmsForm modal={true} buttonLabel={"hola"}></FilmsForm>
             </div>
         );
     }
